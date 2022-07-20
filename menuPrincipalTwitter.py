@@ -7,17 +7,17 @@ while True:
     print("(1): Registro")
     print("(2): Inicio de Sesion")
     print("(3): Salir")
-    opcion = input()
+    opcion = input().lower().strip()
 
-    if opcion.lower().strip() == "3":
+    if opcion == "3":
         break
-    elif opcion.lower().strip() == "1":
+    elif opcion == "1":
         usuario = input("Nombre de usuario: ")
         clave = input("Clave: ")
         clave2 = input("Vuelva a introducir la clave: ")
         if clave == clave2:
-            if len(usuario) > 10 or len(clave) > 10:
-                print("El nombre de usuario y la clave deben tener un maximo de 10 caracteres")
+            if len(usuario) > 20 or len(clave) > 20:
+                print("El nombre de usuario y la clave deben tener un maximo de 20 caracteres")
             elif len(usuario) < 1 or len(clave) < 1:
                 print("El nombre de usuario y la clave deben tener un minimo de 1 caracter")
             else:
@@ -30,11 +30,11 @@ while True:
         else:
             print("Las claves no coinciden")
 
-    elif opcion.lower().strip() == "2":
+    elif opcion == "2":
         usuario = input("Nombre de usuario: ")
         clave = input("Clave: ")
-        if len(usuario) > 10 or len(clave) > 10:
-            print("El nombre de usuario y la clave deben tener un maximo de 10 caracteres")
+        if len(usuario) > 20 or len(clave) > 20:
+            print("El nombre de usuario y la clave deben tener un maximo de 20 caracteres")
         elif len(usuario) < 1 or len(clave) < 1:
             print("El nombre de usuario y la clave deben tener un minimo de 1 caracter")
         else:

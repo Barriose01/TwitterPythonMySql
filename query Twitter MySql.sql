@@ -8,6 +8,10 @@ id INT auto_increment PRIMARY KEY,
 nombre varchar(10) NOT NULL UNIQUE,
 clave varchar(10) NOT NULL);
 
+/*Me equivoque en la longitud de estos dos campos, por eso los cambio*/
+ALTER TABLE usuario MODIFY nombre varchar(20);
+ALTER TABLE usuario MODIFY clave varchar(20);
+
 DROP TABLE IF EXISTS publicaciones;
 CREATE TABLE publicaciones(
 idUsuario INT,
@@ -46,12 +50,20 @@ BEGIN
     VALUES(id,post,now());
 END &&
 
+DROP PROCEDURE IF EXISTS buscarUsuario;
+DELIMITER &&
+CREATE PROCEDURE buscarUsuario(in nombreUsuario varchar(20))
+BEGIN
+	SELECT nombre, publicacion, fecha FROM vistaPublicacion
+    WHERE nombre LIKE CONCAT('%',nombreUsuario,'%');
+END &&
+
 DROP VIEW IF EXISTS vistaPublicacion;
 CREATE VIEW vistaPublicacion
 AS
 select p.id, u.nombre, p.publicacion, p.fecha
 FROM publicaciones as p
 inner join usuario as u
-on u.id = p.idUsuario
+on u.id = p.idUsuario;
 
 

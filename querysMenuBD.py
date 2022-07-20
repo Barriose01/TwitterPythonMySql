@@ -28,6 +28,23 @@ class QuerysMenu:
         else:
             print("No hay posts para mostrar")
 
+    def buscarUsuario(self, usuario):
+        cn.__init__()
+        publicaciones = []
+        sql = "CALL buscarUsuario(%s)"
+        cn.cursor.execute(sql,(usuario,))
+        for elemento in cn.cursor:
+            publicaciones.append(elemento)
+        if len(publicaciones) > 0:
+            publicaciones.reverse()
+            print("Resultados para '" + usuario + "': ")
+            for i in range(len(publicaciones)):
+                print( "-" +publicaciones[i][0] + ": " + publicaciones[i][1] + ". Publicado en: " + 
+                str(publicaciones[i][2]))
+        else:
+            print("No se encontraron post para el usuario '" + usuario + "'")
+
+
     def verTusPosts(self,usuario,orden):
         cn.__init__()
         publicaciones = []

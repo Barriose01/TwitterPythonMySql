@@ -14,30 +14,34 @@ class MenuLogin:
             print("\nBienvenid@, " + self.nombre)
             print("(1): Escribir post")
             print("(2): Ver posts de otros usuarios")
-            print("(3): Ver tus posts")
-            print("(4): Ver tus posts (de mas antiguo a mas reciente)")
-            print("(5): Borrar un determinado post")
-            print("(6): Borrar todos los posts")
-            print("(7): Cerrar sesion")
+            print("(3): Buscar usuarios")
+            print("(4): Ver tus posts")
+            print("(5): Ver tus posts (de mas antiguo a mas reciente)")
+            print("(6): Borrar un determinado post")
+            print("(7): Borrar todos los posts")
+            print("(8): Cerrar sesion")
 
             opcion = input().lower().strip()
-            if opcion == "7":
+            if opcion == "8":
                 break
             elif opcion == "1":
                 self.escribirPost()
             elif opcion == "2":
                 q.verPostsGlobales()
             elif opcion == "3":
+                usuario = input("Ingrese el nombre del usuario que desea buscar: ")
+                q.buscarUsuario(usuario)
+            elif opcion == "4":
                 orden = "recientes"
                 publicaciones = q.verTusPosts(self.nombre,orden)
                 self.verTusPostsRecientes(publicaciones)
-            elif opcion == "4":
+            elif opcion == "5":
                 orden = "antiguos"
                 publicaciones = q.verTusPosts(self.nombre,orden)
                 self.verTusPostsAntiguos(publicaciones)
-            elif opcion == "5":
-                self.eliminarPost()
             elif opcion == "6":
+                self.eliminarPost()
+            elif opcion == "7":
                 self.eliminarTodo()
 
     def escribirPost(self):
