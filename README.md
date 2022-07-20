@@ -22,13 +22,13 @@ usuario y no nos dejara registrarnos:
 
 Al iniciar sesion, nos pedira el nombre y la clave. Si estos estan registrados, el programa nos mostrara un nuevo menu:
 
-![image](https://user-images.githubusercontent.com/107152796/179852809-19df960c-32e9-410b-819e-a07c4ca655b1.png)
+![image](https://user-images.githubusercontent.com/107152796/180067226-328f84bd-eeca-43dd-bcbc-14ba283cf9c3.png)
 
 Tenemos distintas opciones que podemos utilizar. Creamos un post de la siguiente manera:
 
 ![image](https://user-images.githubusercontent.com/107152796/179852935-8cccf20a-d9e2-4c9d-a4d0-3c322eb949ad.png)
 
-Si queremos revisar las publicaciones que hemos hecho, entramos en la opcion (3):
+Si queremos revisar las publicaciones que hemos hecho, entramos en la opcion (4):
 
 ![image](https://user-images.githubusercontent.com/107152796/179853018-7089cc4c-d261-452a-8ec4-1db035d00758.png)
 
@@ -38,11 +38,16 @@ Si queremos ver las publicaciones de otros usuarios que hayan usado el programa,
 
 (Las otras publicaciones que aparecen alli son pruebas que fui haciendo)
 
-Si queremos ver nuestras publicaciones mas antiguas a mas recientes, le damos a la opcion (4). Agregue otras publicaciones para demostrar el funcionamiento:
+Si queremos buscar a un determinado usuario sabiendo su nombre, elegimos la opcion (3) e ingresamos su nombre. Nos mostraran los posts que ha realizado
+ese usuario:
+
+![image](https://user-images.githubusercontent.com/107152796/180067569-93315662-eff0-44e5-83f9-9c0d9b2eb735.png)
+
+Si queremos ver nuestras publicaciones mas antiguas a mas recientes, le damos a la opcion (5). Agregue otras publicaciones para demostrar el funcionamiento:
 
 ![image](https://user-images.githubusercontent.com/107152796/179853646-d2342722-cd27-4800-8391-bd5dec026979.png)
 
-Para eliminar una publicacion, elegimos la opcion (5). Nos aparecera lo siguiente:
+Para eliminar una publicacion, elegimos la opcion (6). Nos aparecera lo siguiente:
 
 ![image](https://user-images.githubusercontent.com/107152796/179853755-6e65642b-bd71-4f5f-b772-5c54828bb3db.png)
 
@@ -54,7 +59,7 @@ Si vemos nuestras publicaciones, esta publicacion ya no aparecera:
 
 ![image](https://user-images.githubusercontent.com/107152796/179853954-d8f3a6e0-54d3-44e7-90bf-913fd56c1ad7.png)
 
-Para eliminar todos los posts, escogemos la opcion (6). Nos preguntara si estamos seguros de seguir con el procedimiento. Si es asi, se eliminaran todas
+Para eliminar todos los posts, escogemos la opcion (7). Nos preguntara si estamos seguros de seguir con el procedimiento. Si es asi, se eliminaran todas
 las publicaciones de ese usuario:
 
 ![image](https://user-images.githubusercontent.com/107152796/179854114-bf208eb3-6798-4f10-9c99-1f41a724c079.png)
@@ -65,7 +70,7 @@ Si vemos nuestras publicaciones, nos aparecera lo siguiente:
 
 Esto debido a que se eliminaron todas las publicaciones. 
 
-Le damos a la opcion (7) para cerrar sesion y volver al menu principal.
+Le damos a la opcion (8) para cerrar sesion y volver al menu principal.
 
 Si entramos con otro usuario y vemos las publicaciones globales, no apareceran estas publicaciones:
 
