@@ -1,19 +1,19 @@
 import mysql.connector
 class Conexion:
-    def __init__(self):
-        self.db = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        database = "twitter"
-    )
-        self.cursor = self.db.cursor(buffered = True)
+    def conectar(self): #Por alguna razon, tengo que crear este metodo para que me funcione la conexion
+        try:
+            self.db = mysql.connector.connect(
+            host = "localhost",
+            user = "root",
+            database = "twitter"
+            )
+            self.cursor = self.db.cursor(buffered = True)
+        except:
+            print("Error al hacer la conexion a la base de datos")
 
         
     def verificarUsuario(self,usuario):
-        self.__init__() #Hago esto porque me da error en algunos metodos al usar el cursor no se por que
-                        #Lo que hago aqui es abrir la conexion y obtener el cursor. Al terminar
-                        #el metodo, cierro el cursor
-
+        self.conectar() #Necesito conectar primero y despues cerrar el cursor. No se la razon todavia
         usuarios = []
         existeUsuario = False
         sql = "CALL verificarUsuario(%s)"
@@ -25,11 +25,11 @@ class Conexion:
             existeUsuario = True
         else:
             existeUsuario = False
-        self.cursor.close()    
+        self.cursor.close() #Se cierra la conexion. Si no se cierra, me aparece un error de sincronizacion
         return existeUsuario
 
     def verificarUsuarioYClave(self,usuario,clave):
-        self.__init__()
+        self.conectar()
         usuarios = []
         existeUsuario = False
         sql = "CALL verificarUsuarioYClave(%s,%s)"
@@ -44,14 +44,14 @@ class Conexion:
         return existeUsuario
 
     def registrarUsuario(self,usuario,clave):
-        self.__init__()
+        self.conectar()
         sql = "CALL registrarUsuario(%s,%s)"
         self.cursor.execute(sql,(usuario,clave))
-        self.cursor.close()
         self.db.commit()
+        self.cursor.close()
 
     def getId(self,usuario):
-        self.__init__()
+        self.conectar()
         usuarios = []
         sql = "SELECT id FROM usuario WHERE nombre = %s"
         self.cursor.execute(sql,(usuario,))
