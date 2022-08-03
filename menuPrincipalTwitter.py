@@ -54,10 +54,11 @@ class MenuPrincipal:
                         id = cn.getId(usuario)
                         menu = MenuLogin(id[0][0], usuario)
                         menu.menu()
+                    else:
+                        print("Usuario o clave incorrecta. Intentelo de nuevo")
                 except:
                     print("Error al iniciar sesion")
-                else:
-                    print("Usuario o clave incorrecta. Intentelo de nuevo")
+                
             break
 
 while True:

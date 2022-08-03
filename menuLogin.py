@@ -10,59 +10,104 @@ class MenuLogin:
         while True:
             print("\nBienvenid@, " + self.nombre)
             print("(1): Escribir post")
-            print("(2): Ver posts de otros usuarios")
-            print("(3): Buscar usuarios")
-            print("(4): Ver tus posts")
-            print("(5): Ver tus posts (de mas antiguo a mas reciente)")
-            print("(6): Borrar un determinado post")
-            print("(7): Borrar todos los posts")
-            print("(8): Cerrar sesion")
+            print("(2): Ver Hashtags mas populares")
+            print("(3): Buscar posts por Hashtag")
+            print("(4): Ver posts")
+            print("(5): Buscar posts por usuario")
+            print("(6): Ver tus posts")
+            print("(7): Ver tus posts (de mas antiguo a mas reciente)")
+            print("(8): Borrar un determinado post")
+            print("(9): Borrar todos tus posts")
+            print("(10): Cerrar sesion")
 
             opcion = input().lower().strip()
-            if opcion == "8":
+            if opcion == "10":
                 break
-            elif opcion == "1":
-                self.escribirPost()
-            elif opcion == "2":
-                try:
-                    q.verPostsGlobales()
-                except:
-                    print("Error al ver los posts globales")
-            elif opcion == "3":
-                usuario = input("Ingrese el nombre del usuario que desea buscar: ")
-                try:
-                    q.buscarUsuario(usuario)
-                except:
-                    print("Error al buscar al usuario")
-            elif opcion == "4":
-                orden = "recientes"
-                try:
-                    publicaciones = q.verTusPosts(self.nombre,orden)
-                    self.verTusPostsRecientes(publicaciones)
-                except:
-                    print("Error al mostrar los posts del usuario")
-            elif opcion == "5":
-                orden = "antiguos"
-                try:
-                    publicaciones = q.verTusPosts(self.nombre,orden)
-                    self.verTusPostsAntiguos(publicaciones)
-                except:
-                    print("Error al mostrar los posts del usuario")
-            elif opcion == "6":
-                self.eliminarPost()
-            elif opcion == "7":
-                self.eliminarTodo()
+            else:
+                self.opcionesMenu(opcion)
+            
+
+    def opcionesMenu(self,opcion):
+        if opcion == "1":
+            self.escribirPost()
+        elif opcion == "2":
+            self.hashtagsPopulares()
+        elif opcion == "3":
+            hashtag = input("Ingrese un hashtag para buscar publicaciones relacionadas: ")
+            try:
+                q.buscarHashtag(hashtag)
+            except:
+                print("Error al buscar la publicacion")
+        elif opcion == "4":
+            try:
+                q.verPostsGlobales()
+            except:
+                print("Error al ver los posts globales")
+        elif opcion == "5":
+            usuario = input("Ingrese el nombre del usuario que desea buscar: ")
+            try:
+                q.buscarUsuario(usuario)
+            except:
+                print("Error al buscar al usuario")
+        elif opcion == "6":
+            orden = "recientes"
+            try:
+                publicaciones = q.verTusPosts(self.nombre,orden)
+                self.verTusPostsRecientes(publicaciones)
+            except:
+                print("Error al mostrar los posts del usuario")
+        elif opcion == "7":
+            orden = "antiguos"
+            try:
+                publicaciones = q.verTusPosts(self.nombre,orden)
+                self.verTusPostsAntiguos(publicaciones)
+            except:
+                print("Error al mostrar los posts del usuario")
+        elif opcion == "8":
+            self.eliminarPost()
+        elif opcion == "9":
+            self.eliminarTodo()
+
+    def obtenerHashtag(self, post):
+        hashtags = []
+        for i in range(len(post)):
+            if post[i] == "#":
+                tag1 = post[i:]
+                tag2 = tag1.split(" ")[0]
+                hashtags.append(tag2)
+        return hashtags
+
+    def hashtagsPopulares(self):
+        try:
+            hashtags = q.verHashtagsPopulares()
+            if len(hashtags) > 0:
+                for i in range(len(hashtags)):
+                    print("(" + str(i + 1) + "): " + hashtags[i][0])
+            else:
+                print("No hay hashtags para mostrar")
+        except:
+            print("Error al mostrar los hashtags")
 
     def escribirPost(self):
         post = input("Escriba su post: ")
         if(len(post) > 180 or len(post) < 1):
             print("Los posts deben tener un minimo de 1 caracter y un maximo de 180")
         else:
-            try:
-                q.escribirPost(self.id, post)
-                print("La publicacion ha sido realizada con exito")
-            except:
-                print("Error al escribir el post")
+            hashtags = self.obtenerHashtag(post)
+            if len(hashtags) < 1:
+                try:
+                    q.escribirPost(self.id, post)
+                    print("La publicacion ha sido realizada con exito")
+                except:
+                    print("Error al escribir el post")
+            else:
+                try:
+                    ultimoID = q.escribirPost(self.id, post)
+                    q.insertarHashtag(ultimoID[0][0], self.id, hashtags)
+                    print("La publicacion ha sido realizada con exito")
+                except:
+                    print("Error al escribir el post")
+
 
     def verTusPostsRecientes(self,publicaciones):
         if len(publicaciones) > 0:
