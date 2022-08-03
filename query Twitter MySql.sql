@@ -92,7 +92,7 @@ DROP PROCEDURE IF EXISTS buscarHashtag;
 DELIMITER &&
 CREATE PROCEDURE buscarHashtag(in hashtag varchar(100))
 BEGIN
-	SELECT u.nombre, p.publicacion, p.fecha
+	SELECT DISTINCT(u.nombre), p.publicacion, p.fecha
 	FROM publicacionesXhashtags AS ph
 	INNER JOIN publicaciones AS p
 	ON p.id = ph.idPublicacion
@@ -108,8 +108,6 @@ BEGIN
 	INSERT INTO publicacionesXhashtags(idPublicacion, idUsuario, hashtag)
     VALUES(idPost,idU,tag);
 END &&
-
-
 
 
 

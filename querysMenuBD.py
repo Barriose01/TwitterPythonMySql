@@ -15,7 +15,7 @@ class QuerysMenu:
         for x in cn.cursor:
             ultimoID.append(x)
         cn.cursor.close()
-        return 
+        return ultimoID
         
     def insertarHashtag(self, idPost, idUsuario, listaHashtag):
         cn.conectar()
@@ -46,6 +46,7 @@ class QuerysMenu:
         if len(publicaciones) > 0:
             publicaciones.reverse()
             print("Resultados para '" + hashtag + "'")
+            print(str(len(publicaciones)))
             for i in range(len(publicaciones)):
                 print( "-" +publicaciones[i][0] + ": " + publicaciones[i][1] + ". Publicado en: " + 
                 str(publicaciones[i][2]))
