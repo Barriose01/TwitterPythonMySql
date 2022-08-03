@@ -36,7 +36,9 @@ Al escribir publicaciones, tenemos la opcion de escribir hashtags (#) como en Tw
 sobre las publicaciones utilizando este hashtag como filtro.
 
 Vamos a realizar algunas publicaciones utilizando hashtags para luego realizar una busqueda especial utilizando estas etiquetas:
+
 ![image](https://user-images.githubusercontent.com/107152796/182679323-bd729531-b0c0-4855-a4fa-e0bf21fca71f.png)
+
 ![image](https://user-images.githubusercontent.com/107152796/182679356-99d3539a-6fd7-4d55-982b-4b7b566ce157.png)
 
 Vamos a realizar una busqueda utilizando alguno de los hashtags que creamos. Elegimos la opcion que dice "Buscar posts por Hashtags" e introducimos
@@ -47,6 +49,7 @@ el hashtag que querramos buscar:
 Nos aparecen las publicaciones que contienen la palabra que ingresamos como hashtag. Crearemos otro hashtag diferente para comprobar que la busqueda sirve:
 
 ![image](https://user-images.githubusercontent.com/107152796/182679790-0bd5dd97-38be-487f-91e4-3bda09c28b5b.png)
+
 ![image](https://user-images.githubusercontent.com/107152796/182679845-ae4c1485-a080-486f-8808-3becb6313364.png)
 
 Podemos ver cuales son los hashtags mas populares ingresando a la opcion "Ver Hashtags mas populares". Se nos mostrara una lista de los 10 hashtags mas
@@ -59,6 +62,7 @@ podremos ver que el hashtag #hashtag esta en primera posicion, esto debido a que
 otros hashtags, pueden cambiar de posicion:
 
 ![image](https://user-images.githubusercontent.com/107152796/182680422-ca86cfa9-2b3a-42ae-9cc0-ff4ce6c263fd.png)
+
 ![image](https://user-images.githubusercontent.com/107152796/182680462-9cac10b0-d771-444b-8232-2c6ed42f39eb.png)
 
 Ya que tenemos varias publicaciones, podremos verlas ingresando a la opcion "Ver tus posts":
@@ -95,6 +99,7 @@ Para demostrar que es posible ver todos los posts de los usuarios que hayan real
 que se han hecho:
 
 ![image](https://user-images.githubusercontent.com/107152796/182682195-cc320148-3a31-470a-82b8-46d803074ccd.png)
+
 ![image](https://user-images.githubusercontent.com/107152796/182682238-f986fda4-c563-43f0-80bc-200b8a7408b8.png)
 
 Podemos ver que se encuentran tanto los posts de usuario como de usuario2.
