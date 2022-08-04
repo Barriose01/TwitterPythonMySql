@@ -83,7 +83,9 @@ class MenuLogin:
                 tag1 = post[i:]
                 tag2 = tag1.split(" ")[0]
                 hashtags.append(tag2)
-        return hashtags
+        return set(hashtags) #set sirve para que no se repitan los valores en una lista
+                            #Esto es para que, en caso de que se escriba varias veces un
+                            #mismo hashtag en un post, solo lo considere como si fuese un unico hashtag
 
     def hashtagsPopulares(self):
         try:
@@ -104,7 +106,7 @@ class MenuLogin:
         elif(len(post) > 180 or len(post) < 1):
             print("Los posts deben tener un minimo de 1 caracter y un maximo de 180")
         else:
-            hashtags = self.obtenerHashtag(post)
+            hashtags = list(self.obtenerHashtag(post)) #Este metodo devuelve un set, pero lo transformamos en lista
             if len(hashtags) < 1:
                 try:
                     q.escribirPost(self.id, post)
