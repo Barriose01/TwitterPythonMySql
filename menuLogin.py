@@ -33,22 +33,30 @@ class MenuLogin:
         elif opcion == "2":
             self.hashtagsPopulares()
         elif opcion == "3":
+            print("Presione (q) para volver al menu principal")
             hashtag = input("Ingrese un hashtag para buscar publicaciones relacionadas: ")
-            try:
-                q.buscarHashtag(hashtag)
-            except:
-                print("Error al buscar la publicacion")
+            if hashtag.lower().strip() == "q":
+                pass
+            else:
+                try:
+                    q.buscarHashtag(hashtag)
+                except:
+                    print("Error al buscar la publicacion")
         elif opcion == "4":
             try:
                 q.verPostsGlobales()
             except:
                 print("Error al ver los posts globales")
         elif opcion == "5":
+            print("Presione (q) para volver al menu principal")
             usuario = input("Ingrese el nombre del usuario que desea buscar: ")
-            try:
-                q.buscarUsuario(usuario)
-            except:
-                print("Error al buscar al usuario")
+            if usuario.lower().strip():
+                pass
+            else:
+                try:
+                    q.buscarUsuario(usuario)
+                except:
+                    print("Error al buscar al usuario")
         elif opcion == "6":
             orden = "recientes"
             try:
@@ -89,8 +97,11 @@ class MenuLogin:
             print("Error al mostrar los hashtags")
 
     def escribirPost(self):
+        print("Presione (q) para volver al menu principal ")
         post = input("Escriba su post: ")
-        if(len(post) > 180 or len(post) < 1):
+        if post.lower().strip() == "q":
+            pass
+        elif(len(post) > 180 or len(post) < 1):
             print("Los posts deben tener un minimo de 1 caracter y un maximo de 180")
         else:
             hashtags = self.obtenerHashtag(post)

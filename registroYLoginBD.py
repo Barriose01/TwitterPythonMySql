@@ -9,7 +9,7 @@ class Conexion:
             )
             self.cursor = self.db.cursor(buffered = True)
         except:
-            print("Error al hacer la conexion a la base de datos")
+            print("\nError al hacer la conexion a la base de datos")
 
         
     def verificarUsuario(self,usuario):
