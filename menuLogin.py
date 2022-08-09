@@ -50,7 +50,7 @@ class MenuLogin:
         elif opcion == "5":
             print("Presione (q) para volver al menu principal")
             usuario = input("Ingrese el nombre del usuario que desea buscar: ")
-            if usuario.lower().strip():
+            if usuario.lower().strip() == "q":
                 pass
             else:
                 try:
@@ -61,14 +61,14 @@ class MenuLogin:
             orden = "recientes"
             try:
                 publicaciones = q.verTusPosts(self.nombre,orden)
-                self.verTusPostsRecientes(publicaciones)
+                self.verTusPosts(publicaciones)
             except:
                 print("Error al mostrar los posts del usuario")
         elif opcion == "7":
             orden = "antiguos"
             try:
                 publicaciones = q.verTusPosts(self.nombre,orden)
-                self.verTusPostsAntiguos(publicaciones)
+                self.verTusPosts(publicaciones)
             except:
                 print("Error al mostrar los posts del usuario")
         elif opcion == "8":
@@ -80,9 +80,8 @@ class MenuLogin:
         hashtags = []
         for i in range(len(post)):
             if post[i] == "#":
-                tag1 = post[i:]
-                tag2 = tag1.split(" ")[0]
-                hashtags.append(tag2)
+                tag = post[i:].split()[0]
+                hashtags.append(tag)
         return set(hashtags) #set sirve para que no se repitan los valores en una lista
                             #Esto es para que, en caso de que se escriba varias veces un
                             #mismo hashtag en un post, solo lo considere como si fuese un unico hashtag
@@ -122,21 +121,14 @@ class MenuLogin:
                     print("Error al escribir el post")
 
 
-    def verTusPostsRecientes(self,publicaciones):
+    def verTusPosts(self,publicaciones):
         if len(publicaciones) > 0:
+            print("Cantidad de posts realizados: " + str(len(publicaciones)))
             for i in range(len(publicaciones)):
                 print( "-" +publicaciones[i][1] + ": " + publicaciones[i][2] + ". Publicado en: " + 
                 str(publicaciones[i][3]))
         else:
-            print("No hay posts para mostrar")
-
-    def verTusPostsAntiguos(self,publicaciones):
-        if(len(publicaciones) > 0):
-            for i in range(len(publicaciones)):
-                print( "-" +publicaciones[i][1] + ": " + publicaciones[i][2] + ". Publicado en: " + 
-                str(publicaciones[i][3]))
-        else:
-            print("No hay posts para mostrar")
+            print("No has realizado ningun post")
 
     def eliminarPost(self):
         try:

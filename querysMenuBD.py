@@ -45,8 +45,7 @@ class QuerysMenu:
         cn.cursor.close()
         if len(publicaciones) > 0:
             publicaciones.reverse()
-            print("Resultados para '" + hashtag + "'")
-            print(str(len(publicaciones)))
+            print("\nResultados para '" + hashtag + "': " + str(len(publicaciones)))
             for i in range(len(publicaciones)):
                 print( "-" +publicaciones[i][0] + ": " + publicaciones[i][1] + ". Publicado en: " + 
                 str(publicaciones[i][2]))
@@ -83,7 +82,7 @@ class QuerysMenu:
             publicaciones.append(elemento)
         if len(publicaciones) > 0:
             publicaciones.reverse()
-            print("Resultados para '" + usuario + "': ")
+            print("\nResultados para '" + usuario + "': " + str(len(publicaciones)))
             for i in range(len(publicaciones)):
                 print( "-" +publicaciones[i][0] + ": " + publicaciones[i][1] + ". Publicado en: " + 
                 str(publicaciones[i][2]))

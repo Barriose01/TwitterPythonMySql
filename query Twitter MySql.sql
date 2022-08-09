@@ -109,7 +109,3 @@ BEGIN
     VALUES(idPost,idU,tag);
 END &&
 
-
-
-
-
