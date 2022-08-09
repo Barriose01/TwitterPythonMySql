@@ -61,7 +61,7 @@ class QuerysMenu:
         for elemento in cn.cursor:
             publicaciones.append(elemento)
         if len(publicaciones) > 0:
-            publicaciones.reverse()
+            #publicaciones.reverse()
             for i in range(len(publicaciones)):
                 #[i] representa a la fila
                 #[1] = nombre de usuario
@@ -81,7 +81,7 @@ class QuerysMenu:
         for elemento in cn.cursor:
             publicaciones.append(elemento)
         if len(publicaciones) > 0:
-            publicaciones.reverse()
+            #publicaciones.reverse()
             print("\nResultados para '" + usuario + "': " + str(len(publicaciones)))
             for i in range(len(publicaciones)):
                 print( "-" +publicaciones[i][0] + ": " + publicaciones[i][1] + ". Publicado en: " + 
@@ -99,9 +99,9 @@ class QuerysMenu:
         for elemento in cn.cursor:
             publicaciones.append(elemento)
         if orden == "recientes":
-            publicaciones.reverse()
-        else:
             pass
+        else:
+            publicaciones.reverse()
         cn.cursor.close()
         return publicaciones
         
